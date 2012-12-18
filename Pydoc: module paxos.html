@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Pydoc: module paxos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="pydoc_data/_pydoc.css"></head><body bgcolor="#f0f0f8">
+            <div style='float:left'>
+                Python 3.2.3 [v3.2.3:3d0686d90f55, GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]<br>Darwin-11.4.2
+            </div>
+            <div style='float:right'>
+                <div style='text-align:center'>
+                  <a href="index.html">Module Index</a>
+                  : <a href="topics.html">Topics</a>
+                  : <a href="keywords.html">Keywords</a>
+                </div>
+                <div>
+                    <form action="get" style='display:inline;'>
+                      <input type=text name=key size=15>
+                      <input type=submit value="Get">
+                    </form>&nbsp;
+                    <form action="search" style='display:inline;'>
+                      <input type=text name=key size=15>
+                      <input type=submit value="Search">
+                    </form>
+                </div>
+            </div>
+            <div style="clear:both;padding-top:.5em;">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>paxos</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="getfile?key=/Users/Jesse/Desktop/paxos/paxos.py">/Users/Jesse/Desktop/paxos/paxos.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+<a href="multiprocessing.html">multiprocessing</a><br>
+<a href="os.html">os</a><br>
+<a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="signal.html">signal</a><br>
+<a href="stat.html">stat</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="threading.html">threading</a><br>
+<a href="time.html">time</a><br>
+<a href="traceback.html">traceback</a><br>
+<a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>(<a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="paxos.html#Acceptor">Acceptor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="paxos.html#Client">Client</a>
+</font></dt><dt><font face="helvetica, arial"><a href="paxos.html#Commander">Commander</a>
+</font></dt><dt><font face="helvetica, arial"><a href="paxos.html#Leader">Leader</a>
+</font></dt><dt><font face="helvetica, arial"><a href="paxos.html#Replica">Replica</a>
+</font></dt><dt><font face="helvetica, arial"><a href="paxos.html#Scout">Scout</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Acceptor">class <strong>Acceptor</strong></a>(<a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="paxos.html#Acceptor">Acceptor</a></dd>
+<dd><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a></dd>
+<dd><a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Acceptor-__init__"><strong>__init__</strong></a>(self, parent, initq, channel, log)</dt></dl>
+
+<dl><dt><a name="Acceptor-dump"><strong>dump</strong></a>(self)</dt><dd><tt>save&nbsp;the&nbsp;state&nbsp;to&nbsp;log&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-main"><strong>main</strong></a>(self)</dt><dd><tt>wait&nbsp;for&nbsp;leaders&nbsp;to&nbsp;send&nbsp;Stop&nbsp;msg</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-recover"><strong>recover</strong></a>(self)</dt><dd><tt>recover&nbsp;from&nbsp;crash:<br>
+1.&nbsp;open&nbsp;log&nbsp;file<br>
+2.&nbsp;retrieve&nbsp;state<br>
+3.&nbsp;send&nbsp;notification&nbsp;to&nbsp;leaders</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-setup"><strong>setup</strong></a>(self, leaders, index, recovered)</dt><dd><tt>set&nbsp;up&nbsp;the&nbsp;acceptor<br>
+index:&nbsp;identify&nbsp;acceptor&nbsp;because&nbsp;recovered&nbsp;process&nbsp;has&nbsp;different&nbsp;pid&nbsp;and&nbsp;port,&nbsp;also<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;to&nbsp;make&nbsp;sure&nbsp;it&nbsp;reads&nbsp;and&nbsp;writes&nbsp;the&nbsp;right&nbsp;log&nbsp;file<br>
+recovered:&nbsp;whether&nbsp;it&nbsp;starts&nbsp;normally&nbsp;or&nbsp;needs&nbsp;recovery</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><a name="Acceptor-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-exit"><strong>exit</strong></a>(self, code)</dt></dl>
+
+<dl><dt><a name="Acceptor-incr_logical_clock"><strong>incr_logical_clock</strong></a>(self)</dt><dd><tt>Increment&nbsp;Lamport&nbsp;clock&nbsp;by&nbsp;1.</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-logical_clock"><strong>logical_clock</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;Lamport&nbsp;clock.</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-output"><strong>output</strong></a>(self, message, level<font color="#909090">=20</font>)</dt></dl>
+
+<dl><dt><a name="Acceptor-purge_received"><strong>purge_received</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-purge_sent"><strong>purge_sent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-report_mem"><strong>report_mem</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-report_times"><strong>report_times</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-send"><strong>send</strong></a>(self, data, to)</dt><dd><tt>#&nbsp;Wrapper&nbsp;functions&nbsp;for&nbsp;message&nbsp;passing:</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-set_crash_rate"><strong>set_crash_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Acceptor-set_event_timeout"><strong>set_event_timeout</strong></a>(self, time)</dt></dl>
+
+<dl><dt><a name="Acceptor-set_loglevel"><strong>set_loglevel</strong></a>(self, level)</dt><dd><tt>###&nbsp;Various&nbsp;attribute&nbsp;setters:</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Acceptor-set_receive_fail_rate"><strong>set_receive_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Acceptor-set_send_fail_rate"><strong>set_send_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Acceptor-spawn"><strong>spawn</strong></a>(self, pcls, args)</dt><dd><tt>Spawns&nbsp;a&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-start_timers"><strong>start_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-stop_timers"><strong>stop_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-work"><strong>work</strong></a>(self)</dt><dd><tt>Waste&nbsp;some&nbsp;random&nbsp;amount&nbsp;of&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><strong>Comm</strong> = &lt;class 'distalgo.runtime.sim.Comm'&gt;<dd><tt>The&nbsp;background&nbsp;communications&nbsp;thread.<br>
+&nbsp;<br>
+Creates&nbsp;an&nbsp;event&nbsp;object&nbsp;for&nbsp;each&nbsp;incoming&nbsp;message,&nbsp;and&nbsp;appends&nbsp;the<br>
+event&nbsp;object&nbsp;to&nbsp;the&nbsp;main&nbsp;process'&nbsp;event&nbsp;queue.</tt></dl>
+
+<hr>
+Methods inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><a name="Acceptor-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Acceptor-is_alive"><strong>is_alive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;alive</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Wait&nbsp;until&nbsp;child&nbsp;process&nbsp;terminates</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Acceptor-terminate"><strong>terminate</strong></a>(self)</dt><dd><tt>Terminate&nbsp;process;&nbsp;sends&nbsp;SIGTERM&nbsp;signal&nbsp;or&nbsp;uses&nbsp;TerminateProcess()</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>authkey</strong></dt>
+</dl>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;a&nbsp;daemon</tt></dd>
+</dl>
+<dl><dt><strong>exitcode</strong></dt>
+<dd><tt>Return&nbsp;exit&nbsp;code&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;stop</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Client">class <strong>Client</strong></a>(<a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="paxos.html#Client">Client</a></dd>
+<dd><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a></dd>
+<dd><a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Client-__init__"><strong>__init__</strong></a>(self, parent, initq, channel, log)</dt></dl>
+
+<dl><dt><a name="Client-main"><strong>main</strong></a>(self)</dt><dd><tt>send&nbsp;request&nbsp;to&nbsp;replicas&nbsp;and&nbsp;wait&nbsp;for&nbsp;the&nbsp;reply</tt></dd></dl>
+
+<dl><dt><a name="Client-setup"><strong>setup</strong></a>(self, replicas, nrequests)</dt><dd><tt>set&nbsp;up&nbsp;the&nbsp;client<br>
+nrequests:&nbsp;if&nbsp;==0,&nbsp;won't&nbsp;stop&nbsp;sending&nbsp;requests<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;&gt;&nbsp;0,&nbsp;will&nbsp;stop&nbsp;after&nbsp;sends&nbsp;n&nbsp;requests</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><a name="Client-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-exit"><strong>exit</strong></a>(self, code)</dt></dl>
+
+<dl><dt><a name="Client-incr_logical_clock"><strong>incr_logical_clock</strong></a>(self)</dt><dd><tt>Increment&nbsp;Lamport&nbsp;clock&nbsp;by&nbsp;1.</tt></dd></dl>
+
+<dl><dt><a name="Client-logical_clock"><strong>logical_clock</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;Lamport&nbsp;clock.</tt></dd></dl>
+
+<dl><dt><a name="Client-output"><strong>output</strong></a>(self, message, level<font color="#909090">=20</font>)</dt></dl>
+
+<dl><dt><a name="Client-purge_received"><strong>purge_received</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-purge_sent"><strong>purge_sent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-report_mem"><strong>report_mem</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-report_times"><strong>report_times</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-send"><strong>send</strong></a>(self, data, to)</dt><dd><tt>#&nbsp;Wrapper&nbsp;functions&nbsp;for&nbsp;message&nbsp;passing:</tt></dd></dl>
+
+<dl><dt><a name="Client-set_crash_rate"><strong>set_crash_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Client-set_event_timeout"><strong>set_event_timeout</strong></a>(self, time)</dt></dl>
+
+<dl><dt><a name="Client-set_loglevel"><strong>set_loglevel</strong></a>(self, level)</dt><dd><tt>###&nbsp;Various&nbsp;attribute&nbsp;setters:</tt></dd></dl>
+
+<dl><dt><a name="Client-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Client-set_receive_fail_rate"><strong>set_receive_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Client-set_send_fail_rate"><strong>set_send_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Client-spawn"><strong>spawn</strong></a>(self, pcls, args)</dt><dd><tt>Spawns&nbsp;a&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Client-start_timers"><strong>start_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-stop_timers"><strong>stop_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-work"><strong>work</strong></a>(self)</dt><dd><tt>Waste&nbsp;some&nbsp;random&nbsp;amount&nbsp;of&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><strong>Comm</strong> = &lt;class 'distalgo.runtime.sim.Comm'&gt;<dd><tt>The&nbsp;background&nbsp;communications&nbsp;thread.<br>
+&nbsp;<br>
+Creates&nbsp;an&nbsp;event&nbsp;object&nbsp;for&nbsp;each&nbsp;incoming&nbsp;message,&nbsp;and&nbsp;appends&nbsp;the<br>
+event&nbsp;object&nbsp;to&nbsp;the&nbsp;main&nbsp;process'&nbsp;event&nbsp;queue.</tt></dl>
+
+<hr>
+Methods inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><a name="Client-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Client-is_alive"><strong>is_alive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;alive</tt></dd></dl>
+
+<dl><dt><a name="Client-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Wait&nbsp;until&nbsp;child&nbsp;process&nbsp;terminates</tt></dd></dl>
+
+<dl><dt><a name="Client-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Client-terminate"><strong>terminate</strong></a>(self)</dt><dd><tt>Terminate&nbsp;process;&nbsp;sends&nbsp;SIGTERM&nbsp;signal&nbsp;or&nbsp;uses&nbsp;TerminateProcess()</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>authkey</strong></dt>
+</dl>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;a&nbsp;daemon</tt></dd>
+</dl>
+<dl><dt><strong>exitcode</strong></dt>
+<dd><tt>Return&nbsp;exit&nbsp;code&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;stop</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Commander">class <strong>Commander</strong></a>(<a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="paxos.html#Commander">Commander</a></dd>
+<dd><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a></dd>
+<dd><a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Commander-__init__"><strong>__init__</strong></a>(self, parent, initq, channel, log)</dt></dl>
+
+<dl><dt><a name="Commander-main"><strong>main</strong></a>(self)</dt><dd><tt>send&nbsp;P2a&nbsp;and&nbsp;wait&nbsp;for&nbsp;reply</tt></dd></dl>
+
+<dl><dt><a name="Commander-setup"><strong>setup</strong></a>(self, lam, acceptors, replicas, load)</dt><dd><tt>set&nbsp;up&nbsp;the&nbsp;commander</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><a name="Commander-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-exit"><strong>exit</strong></a>(self, code)</dt></dl>
+
+<dl><dt><a name="Commander-incr_logical_clock"><strong>incr_logical_clock</strong></a>(self)</dt><dd><tt>Increment&nbsp;Lamport&nbsp;clock&nbsp;by&nbsp;1.</tt></dd></dl>
+
+<dl><dt><a name="Commander-logical_clock"><strong>logical_clock</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;Lamport&nbsp;clock.</tt></dd></dl>
+
+<dl><dt><a name="Commander-output"><strong>output</strong></a>(self, message, level<font color="#909090">=20</font>)</dt></dl>
+
+<dl><dt><a name="Commander-purge_received"><strong>purge_received</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-purge_sent"><strong>purge_sent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-report_mem"><strong>report_mem</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-report_times"><strong>report_times</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-send"><strong>send</strong></a>(self, data, to)</dt><dd><tt>#&nbsp;Wrapper&nbsp;functions&nbsp;for&nbsp;message&nbsp;passing:</tt></dd></dl>
+
+<dl><dt><a name="Commander-set_crash_rate"><strong>set_crash_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Commander-set_event_timeout"><strong>set_event_timeout</strong></a>(self, time)</dt></dl>
+
+<dl><dt><a name="Commander-set_loglevel"><strong>set_loglevel</strong></a>(self, level)</dt><dd><tt>###&nbsp;Various&nbsp;attribute&nbsp;setters:</tt></dd></dl>
+
+<dl><dt><a name="Commander-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Commander-set_receive_fail_rate"><strong>set_receive_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Commander-set_send_fail_rate"><strong>set_send_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Commander-spawn"><strong>spawn</strong></a>(self, pcls, args)</dt><dd><tt>Spawns&nbsp;a&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Commander-start_timers"><strong>start_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-stop_timers"><strong>stop_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-work"><strong>work</strong></a>(self)</dt><dd><tt>Waste&nbsp;some&nbsp;random&nbsp;amount&nbsp;of&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><strong>Comm</strong> = &lt;class 'distalgo.runtime.sim.Comm'&gt;<dd><tt>The&nbsp;background&nbsp;communications&nbsp;thread.<br>
+&nbsp;<br>
+Creates&nbsp;an&nbsp;event&nbsp;object&nbsp;for&nbsp;each&nbsp;incoming&nbsp;message,&nbsp;and&nbsp;appends&nbsp;the<br>
+event&nbsp;object&nbsp;to&nbsp;the&nbsp;main&nbsp;process'&nbsp;event&nbsp;queue.</tt></dl>
+
+<hr>
+Methods inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><a name="Commander-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Commander-is_alive"><strong>is_alive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;alive</tt></dd></dl>
+
+<dl><dt><a name="Commander-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Wait&nbsp;until&nbsp;child&nbsp;process&nbsp;terminates</tt></dd></dl>
+
+<dl><dt><a name="Commander-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Commander-terminate"><strong>terminate</strong></a>(self)</dt><dd><tt>Terminate&nbsp;process;&nbsp;sends&nbsp;SIGTERM&nbsp;signal&nbsp;or&nbsp;uses&nbsp;TerminateProcess()</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>authkey</strong></dt>
+</dl>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;a&nbsp;daemon</tt></dd>
+</dl>
+<dl><dt><strong>exitcode</strong></dt>
+<dd><tt>Return&nbsp;exit&nbsp;code&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;stop</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Leader">class <strong>Leader</strong></a>(<a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="paxos.html#Leader">Leader</a></dd>
+<dd><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a></dd>
+<dd><a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Leader-__init__"><strong>__init__</strong></a>(self, parent, initq, channel, log)</dt></dl>
+
+<dl><dt><a name="Leader-circle_plus"><strong>circle_plus</strong></a>(self, x, y)</dt><dd><tt>returns&nbsp;the&nbsp;elements&nbsp;of&nbsp;y&nbsp;as&nbsp;well&nbsp;as&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;that&nbsp;are&nbsp;not&nbsp;in&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="Leader-dump"><strong>dump</strong></a>(self)</dt><dd><tt>save&nbsp;the&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="Leader-main"><strong>main</strong></a>(self)</dt><dd><tt>spawn&nbsp;a&nbsp;<a href="#Scout">Scout</a>&nbsp;first,&nbsp;wait&nbsp;for&nbsp;replica&nbsp;to&nbsp;send&nbsp;Stop&nbsp;msg</tt></dd></dl>
+
+<dl><dt><a name="Leader-pmax"><strong>pmax</strong></a>(self, pvals)</dt><dd><tt>determine&nbsp;for&nbsp;each&nbsp;slot&nbsp;the&nbsp;command&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;maximum&nbsp;ballot&nbsp;number&nbsp;in&nbsp;pvals</tt></dd></dl>
+
+<dl><dt><a name="Leader-recover"><strong>recover</strong></a>(self)</dt><dd><tt>recover&nbsp;from&nbsp;crash:<br>
+1.&nbsp;open&nbsp;log&nbsp;file<br>
+2.&nbsp;retrieve&nbsp;state<br>
+3.&nbsp;send&nbsp;notification&nbsp;to&nbsp;replicas&nbsp;and&nbsp;acceptors</tt></dd></dl>
+
+<dl><dt><a name="Leader-setup"><strong>setup</strong></a>(self, acceptors, replicas, index, recovered)</dt><dd><tt>set&nbsp;up&nbsp;the&nbsp;leader<br>
+index:&nbsp;identify&nbsp;leader&nbsp;because&nbsp;recovered&nbsp;process&nbsp;has&nbsp;different&nbsp;pid&nbsp;and&nbsp;port,&nbsp;also<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;to&nbsp;make&nbsp;sure&nbsp;it&nbsp;reads&nbsp;and&nbsp;writes&nbsp;the&nbsp;right&nbsp;log&nbsp;file<br>
+recovered:&nbsp;whether&nbsp;it&nbsp;starts&nbsp;normally&nbsp;or&nbsp;needs&nbsp;recovery</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><a name="Leader-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-exit"><strong>exit</strong></a>(self, code)</dt></dl>
+
+<dl><dt><a name="Leader-incr_logical_clock"><strong>incr_logical_clock</strong></a>(self)</dt><dd><tt>Increment&nbsp;Lamport&nbsp;clock&nbsp;by&nbsp;1.</tt></dd></dl>
+
+<dl><dt><a name="Leader-logical_clock"><strong>logical_clock</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;Lamport&nbsp;clock.</tt></dd></dl>
+
+<dl><dt><a name="Leader-output"><strong>output</strong></a>(self, message, level<font color="#909090">=20</font>)</dt></dl>
+
+<dl><dt><a name="Leader-purge_received"><strong>purge_received</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-purge_sent"><strong>purge_sent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-report_mem"><strong>report_mem</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-report_times"><strong>report_times</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-send"><strong>send</strong></a>(self, data, to)</dt><dd><tt>#&nbsp;Wrapper&nbsp;functions&nbsp;for&nbsp;message&nbsp;passing:</tt></dd></dl>
+
+<dl><dt><a name="Leader-set_crash_rate"><strong>set_crash_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Leader-set_event_timeout"><strong>set_event_timeout</strong></a>(self, time)</dt></dl>
+
+<dl><dt><a name="Leader-set_loglevel"><strong>set_loglevel</strong></a>(self, level)</dt><dd><tt>###&nbsp;Various&nbsp;attribute&nbsp;setters:</tt></dd></dl>
+
+<dl><dt><a name="Leader-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Leader-set_receive_fail_rate"><strong>set_receive_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Leader-set_send_fail_rate"><strong>set_send_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Leader-spawn"><strong>spawn</strong></a>(self, pcls, args)</dt><dd><tt>Spawns&nbsp;a&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Leader-start_timers"><strong>start_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-stop_timers"><strong>stop_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-work"><strong>work</strong></a>(self)</dt><dd><tt>Waste&nbsp;some&nbsp;random&nbsp;amount&nbsp;of&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><strong>Comm</strong> = &lt;class 'distalgo.runtime.sim.Comm'&gt;<dd><tt>The&nbsp;background&nbsp;communications&nbsp;thread.<br>
+&nbsp;<br>
+Creates&nbsp;an&nbsp;event&nbsp;object&nbsp;for&nbsp;each&nbsp;incoming&nbsp;message,&nbsp;and&nbsp;appends&nbsp;the<br>
+event&nbsp;object&nbsp;to&nbsp;the&nbsp;main&nbsp;process'&nbsp;event&nbsp;queue.</tt></dl>
+
+<hr>
+Methods inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><a name="Leader-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Leader-is_alive"><strong>is_alive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;alive</tt></dd></dl>
+
+<dl><dt><a name="Leader-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Wait&nbsp;until&nbsp;child&nbsp;process&nbsp;terminates</tt></dd></dl>
+
+<dl><dt><a name="Leader-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Leader-terminate"><strong>terminate</strong></a>(self)</dt><dd><tt>Terminate&nbsp;process;&nbsp;sends&nbsp;SIGTERM&nbsp;signal&nbsp;or&nbsp;uses&nbsp;TerminateProcess()</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>authkey</strong></dt>
+</dl>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;a&nbsp;daemon</tt></dd>
+</dl>
+<dl><dt><strong>exitcode</strong></dt>
+<dd><tt>Return&nbsp;exit&nbsp;code&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;stop</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Replica">class <strong>Replica</strong></a>(<a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="paxos.html#Replica">Replica</a></dd>
+<dd><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a></dd>
+<dd><a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Replica-__init__"><strong>__init__</strong></a>(self, parent, initq, channel, log)</dt></dl>
+
+<dl><dt><a name="Replica-main"><strong>main</strong></a>(self)</dt><dd><tt>wait&nbsp;for&nbsp;the&nbsp;client&nbsp;to&nbsp;send&nbsp;Stop&nbsp;msg</tt></dd></dl>
+
+<dl><dt><a name="Replica-perform"><strong>perform</strong></a>(self, p)</dt><dd><tt>perform&nbsp;an&nbsp;operation</tt></dd></dl>
+
+<dl><dt><a name="Replica-propose"><strong>propose</strong></a>(self, p)</dt><dd><tt>propose&nbsp;a&nbsp;proposal</tt></dd></dl>
+
+<dl><dt><a name="Replica-setup"><strong>setup</strong></a>(self, leaders, initial_state)</dt><dd><tt>set&nbsp;up&nbsp;the&nbsp;replica</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><a name="Replica-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-exit"><strong>exit</strong></a>(self, code)</dt></dl>
+
+<dl><dt><a name="Replica-incr_logical_clock"><strong>incr_logical_clock</strong></a>(self)</dt><dd><tt>Increment&nbsp;Lamport&nbsp;clock&nbsp;by&nbsp;1.</tt></dd></dl>
+
+<dl><dt><a name="Replica-logical_clock"><strong>logical_clock</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;Lamport&nbsp;clock.</tt></dd></dl>
+
+<dl><dt><a name="Replica-output"><strong>output</strong></a>(self, message, level<font color="#909090">=20</font>)</dt></dl>
+
+<dl><dt><a name="Replica-purge_received"><strong>purge_received</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-purge_sent"><strong>purge_sent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-report_mem"><strong>report_mem</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-report_times"><strong>report_times</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-send"><strong>send</strong></a>(self, data, to)</dt><dd><tt>#&nbsp;Wrapper&nbsp;functions&nbsp;for&nbsp;message&nbsp;passing:</tt></dd></dl>
+
+<dl><dt><a name="Replica-set_crash_rate"><strong>set_crash_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Replica-set_event_timeout"><strong>set_event_timeout</strong></a>(self, time)</dt></dl>
+
+<dl><dt><a name="Replica-set_loglevel"><strong>set_loglevel</strong></a>(self, level)</dt><dd><tt>###&nbsp;Various&nbsp;attribute&nbsp;setters:</tt></dd></dl>
+
+<dl><dt><a name="Replica-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Replica-set_receive_fail_rate"><strong>set_receive_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Replica-set_send_fail_rate"><strong>set_send_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Replica-spawn"><strong>spawn</strong></a>(self, pcls, args)</dt><dd><tt>Spawns&nbsp;a&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Replica-start_timers"><strong>start_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-stop_timers"><strong>stop_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-work"><strong>work</strong></a>(self)</dt><dd><tt>Waste&nbsp;some&nbsp;random&nbsp;amount&nbsp;of&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><strong>Comm</strong> = &lt;class 'distalgo.runtime.sim.Comm'&gt;<dd><tt>The&nbsp;background&nbsp;communications&nbsp;thread.<br>
+&nbsp;<br>
+Creates&nbsp;an&nbsp;event&nbsp;object&nbsp;for&nbsp;each&nbsp;incoming&nbsp;message,&nbsp;and&nbsp;appends&nbsp;the<br>
+event&nbsp;object&nbsp;to&nbsp;the&nbsp;main&nbsp;process'&nbsp;event&nbsp;queue.</tt></dl>
+
+<hr>
+Methods inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><a name="Replica-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Replica-is_alive"><strong>is_alive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;alive</tt></dd></dl>
+
+<dl><dt><a name="Replica-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Wait&nbsp;until&nbsp;child&nbsp;process&nbsp;terminates</tt></dd></dl>
+
+<dl><dt><a name="Replica-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Replica-terminate"><strong>terminate</strong></a>(self)</dt><dd><tt>Terminate&nbsp;process;&nbsp;sends&nbsp;SIGTERM&nbsp;signal&nbsp;or&nbsp;uses&nbsp;TerminateProcess()</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>authkey</strong></dt>
+</dl>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;a&nbsp;daemon</tt></dd>
+</dl>
+<dl><dt><strong>exitcode</strong></dt>
+<dd><tt>Return&nbsp;exit&nbsp;code&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;stop</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Scout">class <strong>Scout</strong></a>(<a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="paxos.html#Scout">Scout</a></dd>
+<dd><a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a></dd>
+<dd><a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Scout-__init__"><strong>__init__</strong></a>(self, parent, initq, channel, log)</dt></dl>
+
+<dl><dt><a name="Scout-main"><strong>main</strong></a>(self)</dt><dd><tt>send&nbsp;P1a&nbsp;and&nbsp;wait&nbsp;for&nbsp;reply</tt></dd></dl>
+
+<dl><dt><a name="Scout-setup"><strong>setup</strong></a>(self, lam, acceptors, b, first_slot)</dt><dd><tt>set&nbsp;up&nbsp;the&nbsp;scout</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><a name="Scout-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-exit"><strong>exit</strong></a>(self, code)</dt></dl>
+
+<dl><dt><a name="Scout-incr_logical_clock"><strong>incr_logical_clock</strong></a>(self)</dt><dd><tt>Increment&nbsp;Lamport&nbsp;clock&nbsp;by&nbsp;1.</tt></dd></dl>
+
+<dl><dt><a name="Scout-logical_clock"><strong>logical_clock</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;value&nbsp;of&nbsp;Lamport&nbsp;clock.</tt></dd></dl>
+
+<dl><dt><a name="Scout-output"><strong>output</strong></a>(self, message, level<font color="#909090">=20</font>)</dt></dl>
+
+<dl><dt><a name="Scout-purge_received"><strong>purge_received</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-purge_sent"><strong>purge_sent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-report_mem"><strong>report_mem</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-report_times"><strong>report_times</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-run"><strong>run</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-send"><strong>send</strong></a>(self, data, to)</dt><dd><tt>#&nbsp;Wrapper&nbsp;functions&nbsp;for&nbsp;message&nbsp;passing:</tt></dd></dl>
+
+<dl><dt><a name="Scout-set_crash_rate"><strong>set_crash_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Scout-set_event_timeout"><strong>set_event_timeout</strong></a>(self, time)</dt></dl>
+
+<dl><dt><a name="Scout-set_loglevel"><strong>set_loglevel</strong></a>(self, level)</dt><dd><tt>###&nbsp;Various&nbsp;attribute&nbsp;setters:</tt></dd></dl>
+
+<dl><dt><a name="Scout-set_name"><strong>set_name</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Scout-set_receive_fail_rate"><strong>set_receive_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Scout-set_send_fail_rate"><strong>set_send_fail_rate</strong></a>(self, rate)</dt></dl>
+
+<dl><dt><a name="Scout-spawn"><strong>spawn</strong></a>(self, pcls, args)</dt><dd><tt>Spawns&nbsp;a&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Scout-start_timers"><strong>start_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-stop_timers"><strong>stop_timers</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-work"><strong>work</strong></a>(self)</dt><dd><tt>Waste&nbsp;some&nbsp;random&nbsp;amount&nbsp;of&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="distalgo.runtime.sim.html#DistProcess">distalgo.runtime.sim.DistProcess</a>:<br>
+<dl><dt><strong>Comm</strong> = &lt;class 'distalgo.runtime.sim.Comm'&gt;<dd><tt>The&nbsp;background&nbsp;communications&nbsp;thread.<br>
+&nbsp;<br>
+Creates&nbsp;an&nbsp;event&nbsp;object&nbsp;for&nbsp;each&nbsp;incoming&nbsp;message,&nbsp;and&nbsp;appends&nbsp;the<br>
+event&nbsp;object&nbsp;to&nbsp;the&nbsp;main&nbsp;process'&nbsp;event&nbsp;queue.</tt></dl>
+
+<hr>
+Methods inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><a name="Scout-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Scout-is_alive"><strong>is_alive</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;alive</tt></dd></dl>
+
+<dl><dt><a name="Scout-join"><strong>join</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Wait&nbsp;until&nbsp;child&nbsp;process&nbsp;terminates</tt></dd></dl>
+
+<dl><dt><a name="Scout-start"><strong>start</strong></a>(self)</dt><dd><tt>Start&nbsp;child&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Scout-terminate"><strong>terminate</strong></a>(self)</dt><dd><tt>Terminate&nbsp;process;&nbsp;sends&nbsp;SIGTERM&nbsp;signal&nbsp;or&nbsp;uses&nbsp;TerminateProcess()</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="multiprocessing.process.html#Process">multiprocessing.process.Process</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>authkey</strong></dt>
+</dl>
+<dl><dt><strong>daemon</strong></dt>
+<dd><tt>Return&nbsp;whether&nbsp;process&nbsp;is&nbsp;a&nbsp;daemon</tt></dd>
+</dl>
+<dl><dt><strong>exitcode</strong></dt>
+<dd><tt>Return&nbsp;exit&nbsp;code&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;stop</tt></dd>
+</dl>
+<dl><dt><strong>ident</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+<dd><tt>Return&nbsp;identifier&nbsp;(PID)&nbsp;of&nbsp;process&nbsp;or&nbsp;`None`&nbsp;if&nbsp;it&nbsp;has&nbsp;yet&nbsp;to&nbsp;start</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>CRITICAL</strong> = 50<br>
+<strong>CounterLock</strong> = &lt;_thread.lock object&gt;<br>
+<strong>DEBUG</strong> = 10<br>
+<strong>ERROR</strong> = 40<br>
+<strong>FATAL</strong> = 50<br>
+<strong>INFO</strong> = 20<br>
+<strong>Log</strong> = &lt;logging.Logger object&gt;<br>
+<strong>NOPS</strong> = 10<br>
+<strong>PerformanceCounters</strong> = {}<br>
+<strong>PrintProcStats</strong> = False<br>
+<strong>ProcessIds</strong> = []<br>
+<strong>RootLock</strong> = &lt;_thread.lock object&gt;<br>
+<strong>RootProcess</strong> = None<br>
+<strong>TotalUnits</strong> = None<br>
+<strong>operations</strong> = {0: &lt;function &lt;lambda&gt;&gt;, 1: &lt;function &lt;lambda&gt;&gt;, 2: &lt;function &lt;lambda&gt;&gt;, 3: &lt;function &lt;lambda&gt;&gt;, 4: &lt;function &lt;lambda&gt;&gt;, 5: &lt;function &lt;lambda&gt;&gt;, 6: &lt;function &lt;lambda&gt;&gt;, 7: &lt;function &lt;lambda&gt;&gt;, 8: &lt;function &lt;lambda&gt;&gt;, 9: &lt;function &lt;lambda&gt;&gt;}</td></tr></table></div>
+</body></html>
