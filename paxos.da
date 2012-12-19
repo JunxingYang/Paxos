@@ -419,7 +419,7 @@ class Client(DistProcess):
             await(results.get(cid) != None and count.get(cid) == len(replicas))
             output("%d Received result %d:%d" % (self.pid, cid, results[cid]))
             cid += 1
-            time.sleep(0.1)
+            time.sleep(0.2)
         time.sleep(2)
         send(Stop(), replicas)
 
