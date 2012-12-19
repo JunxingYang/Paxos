@@ -1,4 +1,4 @@
-"""Multi-Paxos protocal
+"""Multi-Paxos protocol
 
 Classes:
     Acceptor

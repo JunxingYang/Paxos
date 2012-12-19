@@ -1,6 +1,6 @@
 dist_source(".","paxos.da")
 from paxos import *
-"""Test Case 1 -- leaders' recovery:
+"""Test Case 2 -- leaders' recovery:
     1. run paxos with 5 acceptors, 5 replicas, 3 leaders, 5 clients
     2. all leaders terminate after 2 seconds
     3. clients won't receive results
